@@ -136,7 +136,7 @@ public class Euler_13 {
             @Override
             public BinaryOperator<BigInteger[]> combiner() {
                 return (a, b) -> {
-                    a[0].add(b[0]);
+                    a[0] = a[0].add(b[0]);
                     return a;
                 };
             }
@@ -156,7 +156,7 @@ public class Euler_13 {
     public static void main(String[] args) {
 
         BigInteger collect = Arrays.stream(input.split("\n"))
-                .map(string -> new BigInteger(string))
+                .map(BigInteger::new)
                 .collect(summingBigInteger());
 
         System.out.println("Result: " + collect.toString().substring(0, 10));
