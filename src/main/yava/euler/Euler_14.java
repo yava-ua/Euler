@@ -1,5 +1,7 @@
 package yava.euler;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.function.LongUnaryOperator;
 
 public class Euler_14 {
@@ -38,6 +40,7 @@ public class Euler_14 {
 
     public static void main(String[] args) {
 
+        Instant start = Instant.now();
         int maxChain = 10;
         int maxChainNumber = 13;
 
@@ -57,6 +60,9 @@ public class Euler_14 {
                 maxChainNumber = i;
             }
         }
+        Instant end = Instant.now();
+        System.out.println("Execution time: " + Duration.between(start, end));
+
         System.out.println("Max chain number: " + maxChainNumber + ". chain : " + getChain(maxChainNumber));
     }
 }
